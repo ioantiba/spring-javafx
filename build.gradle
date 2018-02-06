@@ -1,0 +1,58 @@
+buildscript {
+	ext {
+		springBootVersion = '1.5.10.RELEASE'
+		lombokVersion = '1.16.20'
+		postgreSQLVersion = '42.2.1'
+		springBootJavaFXVersion = '1.4.5'
+		springBootJavaFXTestVersion = '1.2.0'
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+
+group = 'net.global.software'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+
+repositories {
+	mavenCentral()
+}
+
+configurations {
+    provided
+    compile.extendsFrom provided
+}
+
+dependencies {
+	/* Starter for using Spring Data JPA with Hibernate */
+	//compile("org.springframework.boot:spring-boot-starter-data-jpa:${springBootVersion}")
+	
+	/* Starter for exposing Spring Data repositories over REST using Spring Data REST */
+	compile("org.springframework.boot:spring-boot-starter-data-rest:${springBootVersion}")
+	
+	/* Starter for testing Spring Boot applications with libraries including JUnit, Hamcrest and Mockito */
+	testCompile("org.springframework.boot:spring-boot-starter-test:${springBootVersion}")
+	
+	/* Starter for using Log4j2 for logging. An alternative to spring-boot-starter-logging */
+	compile("org.springframework.boot:spring-boot-starter-log4j2:${springBootVersion}")
+	
+	/* Support for Spring Boot and JavaFX 8 */
+	compile("de.roskenet:springboot-javafx-support:${springBootJavaFXVersion}")
+	
+	/* Test support for Spring Boot and JavaFX 8 */
+	compile("de.roskenet:springboot-javafx-test:${springBootJavaFXTestVersion}")
+	
+	/* Java JDBC 4.2 (JRE 8+) driver for PostgreSQL database */
+	//runtime("org.postgresql:postgresql:${postgreSQLVersion}")
+	
+	/* Spice up your java: Automatic Resource Management, automatic generation of getters, setters, equals, hashCode and toString, and more! */
+	provided("org.projectlombok:lombok:${lombokVersion}")
+}

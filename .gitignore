@@ -1,0 +1,31 @@
+.gradle
+.gradle/
+build/
+gradle/
+!gradle/wrapper/gradle-wrapper.jar
+gradlew
+gradlew.bat
+bin/
+
+### STS ###
+.apt_generated
+.factorypath
+.settings
+.springBeans
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+nbproject/private/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+bin/
+
+### System Files ###
+.DS_Store
